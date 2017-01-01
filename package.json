@@ -1,0 +1,23 @@
+{
+  "name": "hexo-tag-easy-charts",
+  "version": "0.0.1",
+  "description": "The easy to use chart tags for the hexo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspirewit/hexo-tag-easy-charts.git"
+  },
+  "keywords": [
+    "Hexo",
+    "Chart"
+  ],
+  "author": "Richard Li <aspirewit@gmail.com> (http://aspirewit.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aspirewit/hexo-tag-easy-charts/issues"
+  },
+  "homepage": "https://github.com/aspirewit/hexo-tag-easy-charts#readme"
+}
