@@ -45,8 +45,99 @@ var parseChartTagContent = function(content) {
   return table;
 };
 
+var shouldCombined = function(name) {
+ return /^.+\((.+)\)$/.test(name);
+};
+
+var barchartOption = function(title, table, asLinechart) {
+  var option = {
+    title: {
+      text: title
+    },
+    animation: true,
+    tooltip: {
+      trigger: 'axis'
+    },
+    xAxis: {
+      data: table.headers
+    },
+    yAxis: {},
+    series: []
+  };
+
+  var type = asLinechart? 'line' : 'bar';
+  var legend = [];
+  var bodys = table.bodys;
+  for (var i = 0; i < bodys.length; i++) {
+    var row = bodys[i];
+    var name = row['name'];
+    var data = row['data'];
+
+    var item = { name: name, type: type, data: data };
+    if (shouldCombined(name)) {
+      item['stack'] = RegExp.$1;
+    }
+
+    if (asLinechart) {
+      item['areaStyle'] = { normal: {} };
+    }
+
+    legend.push(name);
+    option['series'].push(item);
+  }
+
+  if (legend.length > 1) {
+    option['legend'] = { data: [] };
+    option['legend']['data'] = legend;
+  }
+
+  if (asLinechart) {
+    option['grid'] = {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    };
+    option['xAxis']['boundaryGap'] = false;
+  }
+
+  return option;
+};
+
+var linechartOption = function(title, table) {
+  return barchartOption(title, table, true);
+};
+
+var chartOption = function(type, title, table) {
+  var option = {};
+  if (type === 'bar') {
+    option = barchartOption(title, table);
+  } else if (type === 'line') {
+    option = linechartOption(title, table);
+  }
+
+  return option;
+};
+
 var chartTag = function(type, args, content) {
-  return content;
+  var html = content;
+  var title = args[0] || '';
+  var table = parseChartTagContent(content);
+  var option = chartOption(type, title, table);
+
+  if (option['series'] && option['series'].length > 0) {
+    var tagId = Math.random().toString(36).slice(2);
+    var html = `
+      <div id="${tagId}" class="hexo-tag-easy-charts" style="width: 100%; min-width: 600px; height: 480px;"></div>
+
+      <script type="text/javascript">
+        var chart = echarts.init(document.getElementById('${tagId}'));
+        chart.setOption(${JSON.stringify(option)});
+      </script>
+    `
+  }
+
+  return html;
 };
 
 var barchartTag = function(args, content) {
