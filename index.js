@@ -108,12 +108,58 @@ var linechartOption = function(title, table) {
   return barchartOption(title, table, true);
 };
 
+var piechartOption = function(title, table) {
+  var headers = table.headers;
+
+  var option = {
+    animation: true,
+    tooltip: {
+      trigger: 'item',
+      formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+      data: headers
+    },
+    series:[]
+  };
+
+  var row = table.bodys[0];
+  var name = row['name'];
+  var data = row['data'];
+
+  var pairs = [];
+  for (var i = 0; i < data.length; i++) {
+    pairs.push({ value: data[i], name: headers[i] });
+  }
+
+  var item = {
+    name: name,
+    type: 'pie',
+    radius : '55%',
+
+    data: pairs,
+    itemStyle: {
+      emphasis: {
+        shadowBlur: 10,
+        shadowOffsetX: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.5)'
+      }
+    }
+  };
+
+  option['series'].push(item);
+
+  return option;
+};
+
 var chartOption = function(type, title, table) {
   var option = {};
   if (type === 'bar') {
     option = barchartOption(title, table);
   } else if (type === 'line') {
     option = linechartOption(title, table);
+  } else if (type === 'pie') {
+    option = piechartOption(title, table);
   }
 
   return option;
