@@ -1,6 +1,13 @@
 # hexo-tag-easy-charts
 The easy to use chart tags for the hexo
 
+## Installation
+```
+1. npm install hexo-tag-easy-charts --save
+2. add following javascript file into the <head> section of layout file in the used theme
+   https://unpkg.com/echarts@3.3.2/dist/echarts.min.js
+```
+
 ## Barchart
 
 ### Horizontal Headings
