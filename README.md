@@ -112,3 +112,6 @@ Rambutan | 53
 {% endpiechart %}
 ```
 ![Piechart with Vertical Headings](arts/piechart-with-vertical-headings.png)
+
+
+The idea came from my favorite markdown editor - [MarkEditor](http://markeditor.com/app/markeditor).
