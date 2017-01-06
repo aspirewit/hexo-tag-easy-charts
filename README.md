@@ -4,7 +4,7 @@ The easy to use chart tags for the hexo
 ## Installation
 ```
 1. npm install hexo-tag-easy-charts --save
-2. add following javascript file into the <head> section of layout file in the used theme
+2. including the following javascript file into the <head> section of layout file in the used theme
    https://unpkg.com/echarts@3.3.2/dist/echarts.min.js
 ```
 
@@ -87,3 +87,28 @@ Q4 | 54 | 58 | 67 | 64 | 50 | 93
 ![Linechart with Two Dimensional](arts/linechart-with-two-dimensional.png)
 
 Note: `Early Q3(Q3)` and `Late Q3(Q3)` will automatically combined.
+
+## Piechart
+
+### Horizontal Headings
+```
+{% piechart 'Piechart with Horizontal Headings' %}
+Durian | Clementine | Durian | Mulberry | Papaya | Rambutan
+97 | 72 | 89 | 93 | 68 | 75
+{% endpiechart %}
+```
+![Piechart with Horizontal Headings](arts/piechart-with-horizontal-headings.png)
+
+### Vertical Headings
+```
+{% piechart 'Piechart with Vertical Headings' %}
+Fruit | Sales
+Durian | 56
+Clementine | 85
+Durian | 73
+Mulberry | 93
+Papaya | 68
+Rambutan | 53
+{% endpiechart %}
+```
+![Piechart with Vertical Headings](arts/piechart-with-vertical-headings.png)

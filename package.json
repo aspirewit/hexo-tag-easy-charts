@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-easy-charts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The easy to use chart tags for the hexo",
   "main": "index.js",
   "scripts": {
