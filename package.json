@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-easy-charts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The easy to use chart tags for the hexo",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/aspirewit/hexo-tag-easy-charts/issues"
   },
-  "homepage": "https://github.com/aspirewit/hexo-tag-easy-charts#readme"
+  "homepage": "https://github.com/aspirewit/hexo-tag-easy-charts#readme",
+  "dependencies": {
+    "connect-injector": "^0.4.4"
+  }
 }
