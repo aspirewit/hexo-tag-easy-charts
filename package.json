@@ -19,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/aspirewit/hexo-tag-easy-charts/issues"
   },
-  "homepage": "https://github.com/aspirewit/hexo-tag-easy-charts#readme",
-  "dependencies": {
-    "connect-injector": "^0.4.4"
-  }
+  "homepage": "https://github.com/aspirewit/hexo-tag-easy-charts#readme"
 }
