@@ -3,9 +3,8 @@ The easy to use chart tags for the hexo, the idea came from my favorite markdown
 
 ## Installation
 ```
-1. npm install hexo-tag-easy-charts --save
-2. including the following javascript file into the <head> section of layout file in the used theme
-   https://unpkg.com/echarts@3.3.2/dist/echarts.min.js
+npm install hexo-inject --save
+npm install hexo-tag-easy-charts --save
 ```
 
 ## Barchart
