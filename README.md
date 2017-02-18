@@ -112,3 +112,14 @@ Rambutan | 53
 {% endpiechart %}
 ```
 ![Piechart with Vertical Headings](arts/piechart-with-vertical-headings.png)
+
+## Options
+* width
+* height
+* legend
+
+### Example
+```
+{% piechart 'title' width:300px height:400px legend:false %}
+{% endpiechart %}
+```
